@@ -23,7 +23,7 @@ export class PersonasController {
     @Param('tipodoc') tipodoc: string,
     @Param('doc') doc: string
   ) {
-    return this.personasService.findOne(pais, +tipodoc, +doc);
+    return this.personasService.findOne(+pais, tipodoc, +doc);
   }
 
   @Patch(':id')

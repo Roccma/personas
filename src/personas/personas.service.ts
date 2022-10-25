@@ -9,24 +9,24 @@ export class PersonasService {
   private persons: Persona[] = [
     {
       id: 1,
-      pais: 'Uruguay',
-      tipodoc: 1,
+      pais: 1,
+      tipodoc: 'DO',
       documento: 56212039,
       nombre: 'Luis',
       apellido: 'Lopez'
     },
     {
       id: 2,
-      pais: 'Uruguay',
-      tipodoc: 1,
+      pais: 1,
+      tipodoc: 'DO',
       documento: 48704743,
       nombre: 'Mauro',
       apellido: 'Rocca'
     },
     {
       id: 3,
-      pais: 'Argentina',
-      tipodoc: 2,
+      pais: 7,
+      tipodoc: 'PA',
       documento: 1122334455,
       nombre: 'Lionel',
       apellido: 'Messi'
@@ -41,7 +41,7 @@ export class PersonasService {
     return this.persons;
   }
 
-  findOne(pais: string, tipodoc: number, doc: number) {
+  findOne(pais: number, tipodoc: string, doc: number) {
     const person = this.persons.find(
       person => person.pais === pais && person.tipodoc === tipodoc && person.documento === doc
     );
