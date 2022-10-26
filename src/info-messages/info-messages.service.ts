@@ -23,7 +23,7 @@ export class InfoMessagesService {
   }
 
   findAll() {
-    return { messages: this.messages };
+    return this.messages;
   }
 
   findOne(vinculo: string ) {
@@ -36,7 +36,7 @@ export class InfoMessagesService {
           resp = this.messages['conyuge'];
           break;
     }
-    return { messages: resp };
+    return resp;
   }
 
   update(id: number, updateInfoMessageDto: UpdateInfoMessageDto) {
