@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFiles } from '@nestjs/common';
 import { VinculoService } from './vinculo.service';
 import { CreateVinculoDto } from './dto/create-vinculo.dto';
 import { UpdateVinculoDto } from './dto/update-vinculo.dto';
@@ -26,9 +26,18 @@ export class VinculoController {
       }
     )
   )
-  create(@Body() createVinculoDto: CreateVinculoDto) {
-    
-    return this.vinculoService.create(createVinculoDto);
+  create(
+    @UploadedFiles() files: Array<Express.Multer.File>,
+    @Body() createVinculoDto: CreateVinculoDto
+  ) {
+    const filesUploaded: string[] = [];
+    files.forEach( 
+      ( { path } ) => filesUploaded.push( path )
+     )
+    return {
+      ...createVinculoDto,
+      files: filesUploaded
+    };
   }
 
   @Get()
