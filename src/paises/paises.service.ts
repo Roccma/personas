@@ -8,6 +8,10 @@ export class PaisesService {
 
   private paises: Pais[] = [
     {
+      id: 1,
+      name: 'URUGUAY',
+    },
+    {
       id: 4,
       name: 'ALEMANIA',
     },
